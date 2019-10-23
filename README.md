@@ -18,7 +18,7 @@ Sample Usage
 
 
 ```javascript
-const RisPort70 =  require('./RisPort70');
+const RisPort70 =  require('node-risport70');
 
 const serviceOptions = {
     host: '198.18.133.3' || process.env.CUCM,
