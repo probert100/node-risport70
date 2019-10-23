@@ -1,0 +1,19 @@
+{
+  "name": "node-risport70",
+  "version": "0.0.1",
+  "description": "Node JS API for the  Cisco CUCM RisPort70 (Real-Time Information Port).  RisPort70 service provides an API for querying the current connection status of phones, devices, and applications connected to Cisco Unified Communications Manager (Unified CM). Details provided by RisPort70 include last known connection and registration state, IP address, and model information. The API provides queries, for example by name, for single device or application instances, and wildcard queries which return the status of multiple devices at once.",
+  "main": "src/RisPort70.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["CUCM RisPort70", "Real-Time Information Port", "Cisco CUCM"],
+  "author": "Robert Misior",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "commander": "^3.0.2",
+    "lodash": "^4.17.15",
+    "xml-js": "^1.6.11",
+    "xml2json": "^0.11.2"
+  }
+}
