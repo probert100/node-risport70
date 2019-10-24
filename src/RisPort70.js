@@ -276,7 +276,31 @@ class RisPort70 {
     }
 
 
+    getPhonesByName(phoneNames, nameSpaceToRemove = 'ns1:') {
+        const soapBody =
+            `<soap:selectCmDeviceExt>
+         <soap:StateInfo></soap:StateInfo>
+         <soap:CmSelectionCriteria>
+            <soap:MaxReturnedDevices>10000</soap:MaxReturnedDevices>
+            <soap:DeviceClass>Any</soap:DeviceClass>
+            <soap:Model>255</soap:Model>
+            <soap:Status>Any</soap:Status>
+            <soap:NodeName></soap:NodeName>
+            <soap:SelectBy>Name</soap:SelectBy>
+            
+            <soap:SelectItems>
+              ${phoneNames.map(phoneName => '<soap:item>'+
+                '<soap:Item>'+phoneName+'</soap:Item>'+
+                '</soap:item>')}
+            </soap:SelectItems>
+            
+            <soap:Protocol>Any</soap:Protocol>
+            <soap:DownloadStatus>Any</soap:DownloadStatus>
+         </soap:CmSelectionCriteria>
+      </soap:selectCmDeviceExt>`;
 
+        return this.genericRISSCall(soapBody, nameSpaceToRemove);
+    }
 
     selectCMDevice({
                    MaxReturnedDevices,

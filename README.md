@@ -32,12 +32,21 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const RisPort70Service = new RisPort70.RisPort70(serviceOptions);
 const testPhone = 'SEPEC1D8B2B6DEC';
+const phones = ['SEPEC1D8B2B6DEC', 'SEP70C9C6694624', 'cxout_7167'];
 
 RisPort70Service.getPhoneByName(testPhone)
     .then(phone => {
         console.log('phone =', phone);
     })
     .catch(console.error);
+
+
+RisPort70Service.getPhonesByName(phones)
+    .then(devices => {
+        console.log(`returned devices = ${JSON.stringify(devices)} `);
+    })
+    .catch(console.error);
+
 
 RisPort70Service.selectCMDevice({
     MaxReturnedDevices: 10000,
@@ -48,7 +57,7 @@ RisPort70Service.selectCMDevice({
     SelectBy: RisPort70.SelectBy.Name,
     Protocol: RisPort70.Protocol.Any,
     DownloadStatus: RisPort70.DownloadStatus.Any,
-    items: ['SEPEC1D8B2B6DEC', 'SEP70C9C6694624', 'cxout_7167'],
+    items: phones,
 }).then(devices => {
     console.log(`returned devices = ${JSON.stringify(devices)} `);
 })
@@ -65,5 +74,5 @@ Call Record Analyzer (CRA) https://www.callrecordanalyzer.com/
 
 Disclaimer
 ===============
-Many ideas in this came from: https://github.com/levensailor/node-cisco-axl
+Many ideas used in this project came from: https://github.com/levensailor/node-cisco-axl
 # node-risport70
