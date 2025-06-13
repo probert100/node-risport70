@@ -22,7 +22,7 @@
     "url": "git+https://github.com/probert100/node-risport70.git"
   },
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.8.2",
     "commander": "^3.0.2",
     "lodash": "^4.17.21",
     "xml-js": "^1.6.11",
